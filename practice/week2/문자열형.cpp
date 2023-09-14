@@ -9,7 +9,7 @@ int main()
 // 함수 선언
 {
 	string s1 = "Good"; 
-	// 문자열 변수 s1을 선언, Good으로 초기화
+	// 문자열 변수 s1을 선언, Good으로 초기화, 문자형 : 알파벳 문자 1개만 가질 수 있음
 		string s2 = "Morning";
 	// 문자열 변수 s2를 선언, Morning으로 초기화
 		string s3 = s1 + " " + s2 + "!";
