@@ -10,7 +10,7 @@ int main()
 {
 	string s1 = "Good"; 
 	// 문자열 변수 s1을 선언, Good으로 초기화
-		string s2 = "Mornig";
+		string s2 = "Morning";
 	// 문자열 변수 s2를 선언, Morning으로 초기화
 		string s3 = s1 + " " + s2 + "!";
 	// 문자열 변수 s1, 공백 문자열, 문자열 변수 s2, 느낌표를 연결하여 새로운 문자열 변수 s3를 생성
