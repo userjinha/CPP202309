@@ -14,13 +14,13 @@ int main() {
     cin >> choice;
     // 선택받은 값을 저장한다.
 
-    if (1==2)
+    if (choice == 1)
         cout << " 파일 저장을 선택했습니다. " << endl;
     // 파일 저장 선택했습니다가 띈다.
-    else if (2==3)
+    else if (choice == 2)
         cout << " 파일 닫기를 선택했습니다. " << endl;
     // 파일 닫기를 선택했습니다가 띈다.
-    if (3==1)
+    if (choice == 3)
         cout << " 프로그램을 종료합니다." << endl;
     // 프로그램을 종료합니다가 띈다.
 
