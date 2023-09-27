@@ -4,38 +4,45 @@ using namespace std;
 
 int main() {
 	const int maxPeople = 3;
+	// maXPeopleì„ 3ìœ¼ë¡œ ì„ ì–¸í•œë‹¤.
 	cout << " ~~ ";
 	// cin >> maxPeople;
+
 	string names [maxPeople];
 	int ages [maxPeople];
 
+	// ië¥¼ 0ìœ¼ë¡œ ì´ˆê¸°í™” í•˜ê³ , iëŠ” 3ë³´ë‹¤ ì‘ê²Œí•œë‹¤.
 	for (int i = 0; i < 3; i++
 		) {
-		cout << "»ç¶÷ " << i <<"ÀÇ ÀÌ¸§ : ";
+		cout << "ì‚¬ëŒ " << i <<"ì˜ ì´ë¦„ : ";
 		cin >> names[i];
 
-		cout << "»ç¶÷"<< i<<"ÀÇ ³ªÀÌ : ";
+		cout << "ì‚¬ëŒ"<< i<<"ì˜ ë‚˜ì´ : ";
 		cin >> ages[i];
 
 	
 	} 
+
 	
 	int ageThreshold;
-	cout << "Æ¯Á¤ ³ªÀÌ ÀÌ»óÀÎ »ç¶÷À» Ã£À¸·Á¸é ³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä:";
+	cout << "íŠ¹ì • ë‚˜ì´ ì´ìƒì¸ ì‚¬ëŒì„ ì°¾ìœ¼ë ¤ë©´ ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš”:";
 	cin >> ageThreshold;
-	cout << ageThreshold << "¼¼ ÀÌ»óÀÎ °í°´µé:\n";
+	cout << ageThreshold << "ì„¸ ì´ìƒì¸ ê³ ê°ë“¤:\n";
 	int detectedPeople = 0;
 
+	// jë¥¼ 0ìœ¼ë¡œ ì´ˆê¸°í™” í•˜ê³ , jëŠ” 3ë³´ë‹¤ ì‘ê²Œí•˜ê³ , jëŠ” ì¦ê°ëœë‹¤.
 	for (int j = 0; j < 3; j++)
 	{
+		// ageThresholdë¥¼ ageë³´ë‹¤ ì‘ê±°ë‚˜ í¬ê²Œëœë‹¤ë©´ ì¶œë ¥ëœë‹¤.
 		if (ageThreshold <= ages[j]) {
-			cout << names[j] << " ("<<ages[j]<<"¼¼)\n";
+			cout << names[j] << " ("<<ages[j]<<"ì„¸)\n";
 			detectedPeople ++;
 		}
 
 	}
+	// ë§Œì•½ detectedPeopleì´ 0ê³¼ ê°™ë‹¤ë©´ ì¶œë ¥ëœë‹¤.
 	if (detectedPeople == 0) {
-		cout << ageThreshold << "ÀÌ»óÀÇ ³ªÀÌ¸¦ °¡Áø °í°´ÀÌ ¾ø½À´Ï´Ù";
+		cout << ageThreshold << "ì´ìƒì˜ ë‚˜ì´ë¥¼ ê°€ì§„ ê³ ê°ì´ ì—†ìŠµë‹ˆë‹¤";
 
 	}
 	return 0;
