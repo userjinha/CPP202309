@@ -6,23 +6,24 @@ int main() {
 	const int numCell = 10;
 	int numList[numCell][numCell];
 	
-
-	
-	for (int i = 0; i <= numCell; i++) {
+// i, j : elemìœ¼ë¡œ ì¶œë ¥
+	for(int i =0; i <= numCell; i++) {
 		for (int j = 0; i <= numCell; i++) {
 			int elem = rand() % 1000;
 			numList[i][j] = elem;
 			cout << i << ", " << j << " : " << elem << endl;
 
 			cout << endl;
+			// ì¤„ë°”ê¿ˆ
 		}
-			int max; //Å« °ªÀ» ÀúÀåÇÏ±â À§ÇÑ º¯¼ö
-			int maxI; // Å« °ªÀÌ ÀÖ´Â i¸¦ ÀúÀåÇÏ±â À§ÇÑ º¯¼ö
-			int maxJ; // Å« °ªÀÌ ÀÖ´Â j¸¦ ÀúÀåÇÏ±â À§ÇÑ º¯¼ö
+			int max; //í° ê°’ì„ ì €ìž¥í•˜ê¸° ìœ„í•œ ë³€ìˆ˜
+			int maxI; // í° ê°’ì´ ìžˆëŠ” ië¥¼ ì €ìž¥í•˜ê¸° ìœ„í•œ ë³€ìˆ˜
+			int maxJ; // í° ê°’ì´ ìžˆëŠ” jë¥¼ ì €ìž¥í•˜ê¸° ìœ„í•œ ë³€ìˆ˜
 
-			
+			// 
 			for (int i = 0; i <= numCell; i++) {
 				int j = 0;
+				// iì˜ ê°’ì„ ì €ìž¥
 				for (auto value : numList[i]){
 				
 					if (value > max) 
@@ -32,9 +33,9 @@ int main() {
 					}
 				j++;
 
-				cout << "°¡Àå Å« °ªÀº " << max << "ÀÌ°í,";
-				cout << "i¿Í j´Â °¢°¢ " << maxI << ", " << maxJ << "ÀÔ´Ï´Ù." << endl;
-				cout << "°ËÁõ °á°ú: " << numList[maxI][maxJ] << endl;
+				cout << "ê°€ìž¥ í° ê°’ì€ " << max << "ì´ê³ ,";
+				cout << "iì™€ jëŠ” ê°ê° " << maxI << ", " << maxJ << "ìž…ë‹ˆë‹¤." << endl;
+				cout << "ê²€ì¦ ê²°ê³¼: " << numList[maxI][maxJ] << endl;
 
 
 
