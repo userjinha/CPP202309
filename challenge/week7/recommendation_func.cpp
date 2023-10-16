@@ -6,10 +6,11 @@ const int NUM_ITEMS = 3;
 
 int userPreferences[NUM_USERS][NUM_ITEMS];
 
+// ì‚¬ìš©ì ì„ í˜¸ë„ë¥¼ ì…ë ¥ ë°›ëŠ” í•¨ìˆ˜
 void initializePreferences(int preferences[NUM_USERS][NUM_ITEMS]) {
 	for (int i = 0; i < NUM_USERS; i++) {
-		cout << "»ç¿ëÀÚ" << (i + 1) << "ÀÇ ¼±È£µµ¸¦ ÀÔ·ÂÇÏ¼¼¿ä(";
-		cout << NUM_ITEMS << "°³ÀÇ Ç×¸ñ¿¡ ´ëÇØ ):";
+		cout << "ì‚¬ìš©ì" << (i + 1) << "ì˜ ì„ í˜¸ë„ë¥¼ ì…ë ¥í•˜ì„¸ìš”(";
+		cout << NUM_ITEMS << "ê°œì˜ í•­ëª©ì— ëŒ€í•´ ):";
 		for (int j = 0; j < NUM_ITEMS; ++j) {
 			cin >> userPreferences[i][j];
 			
@@ -17,6 +18,7 @@ void initializePreferences(int preferences[NUM_USERS][NUM_ITEMS]) {
 	}
 }
 
+// ì‚¬ìš©ì ë³„ ì¶”ì²œ í•­ëª©ì„ ì°¾ê³  ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜ ìƒì„±
 void findRecommendedItems(const int preferences[NUM_USERS][NUM_ITEMS]) {
 
 	for (int i = 0; i < NUM_USERS; ++i) {
@@ -27,7 +29,7 @@ void findRecommendedItems(const int preferences[NUM_USERS][NUM_ITEMS]) {
 			}
 		}
 
-		cout << "»ç¿ëÀÚ" << (i + 1) << "¿¡°Ô ÃßÃµÇÏ´Â Ç×¸ñ: ";
+		cout << "ì‚¬ìš©ì" << (i + 1) << "ì—ê²Œ ì¶”ì²œí•˜ëŠ” í•­ëª©: ";
 		cout << (maxPreferenceIndex + 1) << std::endl;
 	}
 }
