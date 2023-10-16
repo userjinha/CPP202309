@@ -2,33 +2,34 @@
 using namespace std;
 
 int main() {
-	const int NUM_USERS = 3;
+	const int NUM_USERS = 3; // ì‚¬ìš©ìì™€ í•­ëª©ì˜ ìˆ˜ë¥¼ ë‚˜íƒ€ë‚´ëŠ” ìƒìˆ˜ë¡œ ì •ì˜
 	const int NUM_ITEMS = 3;
-	int userPreferences[NUM_USERS][NUM_ITEMS];
+	int userPreferences[NUM_USERS][NUM_ITEMS]; // 2ì°¨ì› ë°°ì—´ì„ ì‚¬ìš©í•˜ì—¬ ê°ê° ì €ì¥ì‹œí‚´
 
-	// »ç¿ëÀÚ¿Í Ç×¸ñ °£ÀÇ ¼±È£µµ¸¦ ÀÔ·Â ¹Ş¾Æ 2Â÷¿ø ¹è¿­ ÃÊ±âÈ­
+
+	// ì‚¬ìš©ìì™€ í•­ëª© ê°„ì˜ ì„ í˜¸ë„ë¥¼ ì…ë ¥ ë°›ì•„ 2ì°¨ì› ë°°ì—´ ì´ˆê¸°í™”
 	for (int i = 0; i < NUM_USERS; ++i) {
-		cout << "»ç¿ëÀÚ" << (i + 1) << "ÀÇ ¼±È£µµ¸¦ ÀÔ·ÂÇÏ¼¼¿ä(";
-		cout << NUM_ITEMS << "°³ÀÇ Ç×¸ñ¿¡ ´ëÇØ ):";
+		cout << "ì‚¬ìš©ì" << (i + 1) << "ì˜ ì„ í˜¸ë„ë¥¼ ì…ë ¥í•˜ì„¸ìš”("; // ì‚¬ìš©ìì˜ ì…ë ¥ì„ ë°›ê¸° ìœ„í•´ ì¤‘ì²©ëœ forë£¨í”„ ì‚¬ìš©
+		cout << NUM_ITEMS << "ê°œì˜ í•­ëª©ì— ëŒ€í•´ ):";
 		for (int j = 0; j < NUM_ITEMS; ++j) {
 			cin >> userPreferences[i][j];
 		}
 	}
 
-	// °¢ »ç¿ëÀÚ¿¡ ´ëÇÑ ÃßÃµ Ç×¸ñ Ã£±â
+	// ê° ì‚¬ìš©ìì— ëŒ€í•œ ì¶”ì²œ í•­ëª© ì°¾ê¸°
 	for (int i = 0; i < NUM_USERS; ++i) {
 		int maxPreferenceIndex = 0;
 		for (int j = 1; j < NUM_ITEMS; ++j) {
 			if(userPreferences[i][j] > userPreferences[i][maxPreferenceIndex]) {
-				maxPreferenceIndex = j;
+				maxPreferenceIndex = j; //ifë¬¸ì„ í†µí•´ maxë¥¼ ì´ˆê¸°í™”
 			}
 		}
 
 
 		
 
-		// »ç¿ëÀÚ¿¡°Ô ÃßÃµÇÏ´Â Ç×¸ñ Ãâ·Â
-		cout << "»ç¿ëÀÚ " << (i + 1) << "¿¡°Ô ÃßÃµÇÏ´Â Ç×¸ñ: ";
+		// ì‚¬ìš©ìì—ê²Œ ì¶”ì²œí•˜ëŠ” í•­ëª© ì¶œë ¥
+		cout << "ì‚¬ìš©ì " << (i + 1) << "ì—ê²Œ ì¶”ì²œí•˜ëŠ” í•­ëª©: ";
 		cout << (maxPreferenceIndex + 1) << std:: endl;
 	}
 	return 0;
