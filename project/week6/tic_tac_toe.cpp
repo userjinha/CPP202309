@@ -68,9 +68,9 @@ int main() {
 		// 6. 모든 칸 다 찼는지 체크하기
 		int checked = 0;
 		for (int i = 0; i < numCell; i++) {
-			for (int j = 0; i < numCell; j++) {
+			for (int j = 0; j < numCell; j++) {
 				if (board[i][j] == ' ') {
-					checked++
+					checked++;
 				}
 			}
 			}
@@ -99,7 +99,7 @@ int main() {
 			cout << "왼쪽 위에서 오른쪽 아래 대각선으로 모두 돌이 놓였습니다!";
 			isWin = true; // 대각선에 입력받은 값에 저장된 값과 동일하면 이 문장이 출력
 		}
-		if (board[0][2] == currentUser && board[1][1] == currentUser && board[2][0] == currnetUser) {
+		if (board[0][2] == currentUser && board[1][1] == currentUser && board[2][0] == currentUser) {
 				cout << "오른쪽 위에서 왼쪽 아래 대각선으로 모두 돌이 놓였습니다!";
 				isWin = true;
 			} 
