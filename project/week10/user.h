@@ -3,16 +3,17 @@
 #include <iostream>
 using namespace std;
 
+// ì‚¬ìš©ì í´ë˜ìŠ¤ ì •ì˜
 class User {
 public:
-    // »ı¼ºÀÚ(»óÅÂ)
-    User(int initialHP);
+    // ìƒì„±ì(ìƒíƒœ)
+    int hp;
 
-    // ¸â¹ö ÇÔ¼ö(µ¿ÀÛ)
-    void DecreaseHP(int dec_hp);
-    int GetHP();
+    // ë©¤ë²„ í•¨ìˆ˜(ë™ì‘)
+    void DecreaseHP(int dec_hp); // HPê°€ ê°ì†Œí•˜ëŠ” ë©¤ë²„í•¨ìˆ˜
+    int GetHP(); //HPë¥¼ ë°˜í™˜í•˜ëŠ” ë©¤ë²„í•¨ìˆ˜
 
 private:
-    // ¸â¹ö º¯¼ö
+    // ë©¤ë²„ ë³€ìˆ˜
     int hp;
 };
