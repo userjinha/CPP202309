@@ -1,16 +1,12 @@
 #include "user.h"
 
-// »ı¼ºÀÚ
-User::User(int initialHP) {
-    hp = initialHP;
-}
 
-// HP °¨¼ÒÇÏ´Â ¸â¹ö ÇÔ¼ö
+// HP ê°ì†Œí•˜ëŠ” ë©¤ë²„ í•¨ìˆ˜
 void User::DecreaseHP(int dec_hp) {
     hp -= dec_hp;
 }
 
-// HP¸¦ ¹İÈ¯ÇÏ´Â ¸â¹ö ÇÔ¼ö
+// HPë¥¼ ë°˜í™˜í•˜ëŠ” ë©¤ë²„ í•¨ìˆ˜
 int User::GetHP() {
     return hp;
 }
