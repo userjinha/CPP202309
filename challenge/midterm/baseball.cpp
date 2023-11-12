@@ -6,7 +6,7 @@ bool checkNumber(int randomNum);
 bool checkNumber2(int userNumber);
 int main() {
 	int randomNum; // 맞춰야 하는 3자리수의 숫자 저장 변수
-	
+
 
 	while (1) {
 		randomNum = rand() % 900 + 100; // 랜덤한 3자리수 생성
@@ -14,7 +14,7 @@ int main() {
 		bool same = false; // 모든 수가 다를 경우 true를 갖는 변수
 
 		// TODO 1: 3자리 숫자의 자릿수를 추출하고, 모든 수가 다른지 체크하는 코드블록 작성
-		if (checkNumber(randomNum)==true) {
+		if (checkNumber(randomNum) == true) {
 			break;
 		}
 		else {
@@ -27,7 +27,7 @@ int main() {
 		cout << turn + 1 << "번째 시도입니다. " << endl;
 
 		int userNumber; // 사용자가 입력한 세자리수 저장 변수
-		
+
 
 
 		// 사용자에게 세자리 수를 입력받는 코드 블록
@@ -39,7 +39,7 @@ int main() {
 			// TODO 1: 3자리 숫자의 자릿수를 추출하고, 모든 수가 다른지 체크하는 코드블록 작성
 			if (checkNumber2(userNumber) == true) {
 				break;
-		    }
+			}
 			else {
 				continue;
 			}

@@ -46,16 +46,16 @@ int main() {
 		// 3. 입력받은 좌표의 유효성 체크
 		// TODO FUNC 1: isValid 함수 생성 후 호출
 
-		if (false ==isValid(x, y, numCell, board)) {
+		if (false == isValid(x, y, numCell, board)) {
 			cout << x << "," << y << ": x와 y둘 중 하나가 칸을 벗어납니다. " << endl;
 			continue;
 		}
-		if (true ==isValid(x, y, numCell, board)) {
+		if (true == isValid(x, y, numCell, board)) {
 			cout << x << "," << y << ": 이미 돌이 차있습니다. " << endl;
 			continue;
 		}
-		
-		
+
+
 
 
 
@@ -84,24 +84,24 @@ int main() {
 
 		bool isWin = false; // 승리 여부
 		// TODO FUNC2: 6.1부터 6.2까지 checkWin 함수 생성 후 호출
-		
 
 
-       // 6.1. 가로/세로 돌 체크하기
+
+	   // 6.1. 가로/세로 돌 체크하기
 
 		if (0 == checkWin(numCell, board, currentUser)) {
 			cout << "가로에 모두 돌이 놓였습니다!!";
 			isWin = true;
 			break;
-	    }
+		}
 
 		if (1 == checkWin(numCell, board, currentUser)) {
 			cout << "세로에 모두 돌이 놓였습니다!!";
 			isWin = true;
 			break;
-	    }
-		
-        if (2 == checkWin(numCell, board, currentUser)) {
+		}
+
+		if (2 == checkWin(numCell, board, currentUser)) {
 			cout << "왼쪽 위에서 오른쪽 아래 대각선으로 모두 돌이 놓였습니다!" << endl;
 			isWin = true;
 			break;
@@ -112,7 +112,7 @@ int main() {
 			isWin = true;
 			break;
 		}
-	
+
 		// 승리자가 결정되었으면 해당 플레이어를 출력하고 게임을 종료한다.
 		if (isWin == true) {
 			cout << k % 2 + 1 << "번 유저(" << currentUser << ")의 승리입니다!" << endl;
@@ -138,11 +138,11 @@ int main() {
 	return 0;
 }
 
-bool isValid(int x, int y, int numCell,char board[5][5]) {
+bool isValid(int x, int y, int numCell, char board[5][5]) {
 	if (x >= numCell || y >= numCell) {
 		return false;
 	}
-	if (board[x][y] != ' ') 
+	if (board[x][y] != ' ')
 		return true;
 }
 
@@ -187,13 +187,3 @@ int checkWin(int numCell, char board[5][5], char currentUser) {
 
 }
 
-
-
-// if (board[0][0] == currentUser && board[1][1] == currentUser && board[2][2] == currentUser && board[3][3] == currentUser && board[4][4] == currentUser) {
-	//return 2;
-//}
-
-
-//if (board[4][0] == currentUser && board[3][1] == currentUser && board[2][2] == currentUser && board[1][3] == currentUser && board[0][4] == currentUser) {
-	//return 3;
-//}
