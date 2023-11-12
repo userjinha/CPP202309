@@ -3,14 +3,14 @@
 const int mapX = 5;
 const int mapY = 5;
 
-// »ç¿ëÀÚ Á¤ÀÇ ÇÔ¼ö
+// ì‚¬ìš©ì ì •ì˜ í•¨ìˆ˜
 bool checkXY(int user_x, int mapX, int user_y, int mapY);
 void displayMap(int map[][5], int user_x, int user_y, const User& user);
 bool checkGoal(int map[][5], int user_x, int user_y);
 void checkState(int map[][5], int user_x, int user_y, User& user);
 
 int main() {
-    // 0Àº ºó °ø°£, 1Àº ¾ÆÀÌÅÛ, 2´Â Àû, 3Àº Æ÷¼Ç, 4´Â ¸ñÀûÁö
+    // 0ì€ ë¹ˆ ê³µê°„, 1ì€ ì•„ì´í…œ, 2ëŠ” ì , 3ì€ í¬ì…˜, 4ëŠ” ëª©ì ì§€
     int map[mapY][5] = {
         {0, 1, 2, 0, 4},
         {1, 0, 0, 2, 0},
@@ -22,77 +22,78 @@ int main() {
     int user_x = 0;
     int user_y = 0;
 
-    // 1. ´ÜÀÏ À¯Àú °´Ã¼ »ı¼º ÈÄ hp ¼¼ÆÃ
-    User user(20);
+    // 1. ë‹¨ì¼ ìœ ì € ê°ì²´ ìƒì„± í›„ hp ì„¸íŒ…
+    User my_user;
+    my_user.hp=20;
 
     while (1) {
         std::string user_input = "";
 
-        std::cout << "ÇöÀç HP: " << user.GetHP() << "  ¸í·É¾î¸¦ ÀÔ·ÂÇÏ¼¼¿ä (»ó,ÇÏ,ÁÂ,¿ì,Áöµµ,Á¾·á): ";
+        std::cout << "í˜„ì¬ HP: " << my_user.GetHP() << "  ëª…ë ¹ì–´ë¥¼ ì…ë ¥í•˜ì„¸ìš” (ìƒ,í•˜,ì¢Œ,ìš°,ì§€ë„,ì¢…ë£Œ): ";
         std::cin >> user_input;
 
-        if (user_input == "»ó") {
+        if (user_input == "ìƒ") {
             user_y -= 1;
             bool inMap = checkXY(user_x, mapX, user_y, mapY);
             if (inMap == false) {
-                std::cout << "¸ÊÀ» ¹ş¾î³µ½À´Ï´Ù. ´Ù½Ã µ¹¾Æ°©´Ï´Ù." << std::endl;
+                std::cout << "ë§µì„ ë²—ì–´ë‚¬ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ëŒì•„ê°‘ë‹ˆë‹¤." << std::endl;
                 user_y += 1;
             }
             else {
-                std::cout << "À§·Î ÇÑ Ä­ ¿Ã¶ó°©´Ï´Ù." << std::endl;
-                displayMap(map, user_x, user_y, user);
-                user.DecreaseHP(1); // DecreaseHP¸¦ È£Ãâ »ç¿ëÀÚÀÇ Ã¼·ÂÀÌ 1¸¸Å­ °¨¼Ò
+                std::cout << "ìœ„ë¡œ í•œ ì¹¸ ì˜¬ë¼ê°‘ë‹ˆë‹¤." << std::endl;
+                displayMap(map, user_x, user_y);
+                user.DecreaseHP(1); // DecreaseHPë¥¼ í˜¸ì¶œ ì‚¬ìš©ìì˜ ì²´ë ¥ì´ 1ë§Œí¼ ê°ì†Œ
             }
         }
-        else if (user_input == "ÇÏ") {
+        else if (user_input == "í•˜") {
             user_y += 1;
             bool inMap = checkXY(user_x, mapX, user_y, mapY);
             if (inMap == false) {
-                std::cout << "¸ÊÀ» ¹ş¾î³µ½À´Ï´Ù. ´Ù½Ã µ¹¾Æ°©´Ï´Ù." << std::endl;
+                std::cout << "ë§µì„ ë²—ì–´ë‚¬ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ëŒì•„ê°‘ë‹ˆë‹¤." << std::endl;
                 user_y -= 1;
             }
             else {
-                std::cout << "¾Æ·¡·Î ÇÑ Ä­ ³»·Á°©´Ï´Ù." << std::endl;
-                displayMap(map, user_x, user_y, user);
+                std::cout << "ì•„ë˜ë¡œ í•œ ì¹¸ ë‚´ë ¤ê°‘ë‹ˆë‹¤." << std::endl;
+                displayMap(map, user_x, user_y);
                 user.DecreaseHP(1);
             }
         }
-        else if (user_input == "ÁÂ") {
+        else if (user_input == "ì¢Œ") {
             user_x -= 1;
             bool inMap = checkXY(user_x, mapX, user_y, mapY);
 
             if (inMap == false) {
-                std::cout << "¸ÊÀ» ¹ş¾î³µ½À´Ï´Ù. ´Ù½Ã µ¹¾Æ°©´Ï´Ù." << std::endl;
+                std::cout << "ë§µì„ ë²—ì–´ë‚¬ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ëŒì•„ê°‘ë‹ˆë‹¤." << std::endl;
                 user_x += 1;
             }
             else {
-                std::cout << "¿ŞÂÊÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù." << std::endl;
-                displayMap(map, user_x, user_y, user);
+                std::cout << "ì™¼ìª½ìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤." << std::endl;
+                displayMap(map, user_x, user_y);
                 user.DecreaseHP(1);
             }
         }
-        else if (user_input == "¿ì") {
+        else if (user_input == "ìš°") {
             user_x += 1;
             bool inMap = checkXY(user_x, mapX, user_y, mapY);
             if (inMap == false) {
-                std::cout << "¸ÊÀ» ¹ş¾î³µ½À´Ï´Ù. ´Ù½Ã µ¹¾Æ°©´Ï´Ù." << std::endl;
+                std::cout << "ë§µì„ ë²—ì–´ë‚¬ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ëŒì•„ê°‘ë‹ˆë‹¤." << std::endl;
                 user_x -= 1;
             }
             else {
-                std::cout << "¿À¸¥ÂÊÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù." << std::endl;
-                displayMap(map, user_x, user_y, user);
+                std::cout << "ì˜¤ë¥¸ìª½ìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤." << std::endl;
+                displayMap(map, user_x, user_y);
                 user.DecreaseHP(1);
             }
         }
-        else if (user_input == "Áöµµ") {
-            displayMap(map, user_x, user_y, user);
+        else if (user_input == "ì§€ë„") {
+            displayMap(map, user_x, user_y);
         }
-        else if (user_input == "Á¾·á") {
-            std::cout << "Á¾·áÇÕ´Ï´Ù." << std::endl;
+        else if (user_input == "ì¢…ë£Œ") {
+            std::cout << "ì¢…ë£Œí•©ë‹ˆë‹¤." << std::endl;
             break;
         }
         else {
-            std::cout << "Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù." << std::endl;
+            std::cout << "ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤." << std::endl;
             continue;
         }
 
@@ -100,14 +101,14 @@ int main() {
 
         bool finish = checkGoal(map, user_x, user_y);
         if (finish == true) {
-            std::cout << "¸ñÀûÁö¿¡ µµÂøÇß½À´Ï´Ù! ÃàÇÏÇÕ´Ï´Ù!" << std::endl;
-            std::cout << "°ÔÀÓÀ» Á¾·áÇÕ´Ï´Ù." << std::endl;
+            std::cout << "ëª©ì ì§€ì— ë„ì°©í–ˆìŠµë‹ˆë‹¤! ì¶•í•˜í•©ë‹ˆë‹¤!" << std::endl;
+            std::cout << "ê²Œì„ì„ ì¢…ë£Œí•©ë‹ˆë‹¤." << std::endl;
             break;
         }
 
-        if (user.GetHP() <= 0) { // »ç¿ëÀÚÀÇ Ã¼·ÂÀÌ 0ÀÌÇÏÀÏ¶§ 
-            std::cout << "HP°¡ 0 ÀÌÇÏ°¡ µÇ¾ú½À´Ï´Ù. ½ÇÆĞÇß½À´Ï´Ù. " << std::endl;
-            std::cout << "°ÔÀÓÀ» Á¾·áÇÕ´Ï´Ù." << std::endl;
+        if (user.GetHP() <= 0) { // ì‚¬ìš©ìì˜ ì²´ë ¥ì´ 0ì´í•˜ì¼ë•Œ 
+            std::cout << "HPê°€ 0 ì´í•˜ê°€ ë˜ì—ˆìŠµë‹ˆë‹¤. ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤. " << std::endl;
+            std::cout << "ê²Œì„ì„ ì¢…ë£Œí•©ë‹ˆë‹¤." << std::endl;
             break;
         }
     }
@@ -121,8 +122,8 @@ bool checkXY(int user_x, int mapX, int user_y, int mapY) {
     }
     return checkFlag;
 }
-
-void displayMap(int map[][5], int user_x, int user_y, const User& user) {
+// ë§¤ê°œë³€ìˆ˜ì— User& user 
+void displayMap(int map[][5], int user_x, int user_y) {
     for (int i = 0; i < mapY; i++) {
         for (int j = 0; j < mapX; j++) {
             if (i == user_y && j == user_x) {
@@ -135,16 +136,16 @@ void displayMap(int map[][5], int user_x, int user_y, const User& user) {
                     std::cout << "      |";
                     break;
                 case 1:
-                    std::cout << "¾ÆÀÌÅÛ|";
+                    std::cout << "ì•„ì´í…œ|";
                     break;
                 case 2:
-                    std::cout << "  Àû  |";
+                    std::cout << "  ì   |";
                     break;
                 case 3:
-                    std::cout << " Æ÷¼Ç |";
+                    std::cout << " í¬ì…˜ |";
                     break;
                 case 4:
-                    std::cout << "¸ñÀûÁö|";
+                    std::cout << "ëª©ì ì§€|";
                     break;
                 }
             }
@@ -162,18 +163,19 @@ bool checkGoal(int map[][5], int user_x, int user_y) {
 }
 
 void checkState(int map[][5], int user_x, int user_y, User& user) {
-    switch (map[user_y][user_x]) { // &¸¦ »ç¿ëÇØ¼­ user°´Ã¼¸¦ Àü´Ş
+    switch (map[user_y][user_x]) { // &ë¥¼ ì‚¬ìš©í•´ì„œ userê°ì²´ë¥¼ ì „ë‹¬
     case 1:
-        std::cout << "¾ÆÀÌÅÛÀÌ ÀÖ½À´Ï´Ù" << std::endl;
+        std::cout << "ì•„ì´í…œì´ ìˆìŠµë‹ˆë‹¤" << std::endl;
         break;
 
     case 2:
-        std::cout << "ÀûÀÌ ÀÖ½À´Ï´Ù. HP°¡ 2 ÁÙ¾îµì´Ï´Ù." << std::endl;
-        user.DecreaseHP(2); // ÁÙ¾îµå´Ï +
+        std::cout << "ì ì´ ìˆìŠµë‹ˆë‹¤. HPê°€ 2 ì¤„ì–´ë“­ë‹ˆë‹¤." << std::endl;
+        user.DecreaseHP(2); // ì¤„ì–´ë“œë‹ˆ +
 
     case 3:
-        std::cout << "Æ÷¼ÇÀÌ ÀÖ½À´Ï´Ù. HP°¡ 2 ´Ã¾î³³´Ï´Ù." << std::endl;
-        user.DecreaseHP(-2); // ´Ã¾î³ª´Ï -ºÙ¿©ÁÜ
+        std::cout << "í¬ì…˜ì´ ìˆìŠµë‹ˆë‹¤. HPê°€ 2 ëŠ˜ì–´ë‚©ë‹ˆë‹¤." << std::endl;
+        user.DecreaseHP(-2); // ëŠ˜ì–´ë‚˜ë‹ˆ -ë¶™ì—¬ì¤Œ
         break;
     }
 }
+
